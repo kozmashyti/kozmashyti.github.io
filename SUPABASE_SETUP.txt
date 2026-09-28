@@ -1,0 +1,129 @@
+SUPABASE AUTH SETUP — KOZMA SHYTI PORTFOLIO
+=================================================
+
+This project is wired for real Supabase authentication.
+
+WHAT WORKS AFTER CONFIGURATION
+------------------------------
+- Real Sign Up
+- Email verification (if enabled in Supabase)
+- Real Login
+- Persistent browser session
+- Account panel with name/email
+- Sign Out
+- Forgot Password email
+- Secure password reset link
+- Real password update
+- English / Albanian language sync
+- Dark / light mode sync
+
+STEP 1 — CREATE A SUPABASE PROJECT
+----------------------------------
+Go to:
+https://supabase.com/dashboard
+
+Create a project.
+
+STEP 2 — COPY THESE TWO VALUES
+------------------------------
+In your Supabase project, find:
+- Project URL
+- Publishable key (or legacy anon key)
+
+Open:
+supabase-config.js
+
+Replace:
+
+PASTE_YOUR_SUPABASE_PROJECT_URL_HERE
+
+and:
+
+PASTE_YOUR_SUPABASE_PUBLISHABLE_OR_ANON_KEY_HERE
+
+IMPORTANT:
+Use ONLY the publishable/anon key in the website.
+NEVER paste a secret key or service_role key into frontend files.
+
+STEP 3 — AUTH SETTINGS
+----------------------
+In Supabase Dashboard:
+
+Authentication -> Providers -> Email
+
+Enable Email / Password authentication.
+
+Recommended:
+Keep email confirmation enabled.
+
+STEP 4 — PASSWORD SECURITY
+--------------------------
+In Supabase Auth settings set:
+
+Minimum password length: 8
+
+Required characters:
+- lowercase
+- uppercase
+- digits
+- symbols
+
+The frontend also enforces a maximum of 16 characters for this design.
+
+STEP 5 — REDIRECT URLS
+----------------------
+Supabase must allow the URL where auth.html is hosted.
+
+Example if your site is:
+https://example.netlify.app/
+
+Add redirect URLs such as:
+
+https://example.netlify.app/auth.html
+https://example.netlify.app/auth.html?verified=1
+https://example.netlify.app/auth.html?mode=recovery
+
+If you use another domain, replace the domain above.
+
+STEP 6 — DEPLOY
+---------------
+Upload all files to your host.
+
+Test in this order:
+
+1. Sign Up
+2. Check email
+3. Confirm email
+4. Login
+5. Sign Out
+6. Forgot password
+7. Open reset link from email
+8. Choose new password
+9. Login with new password
+
+NOTES
+-----
+The password UI requires:
+- 8–16 characters
+- uppercase letter
+- lowercase letter
+- number
+- special character
+
+For production, also consider:
+- CAPTCHA / bot protection
+- MFA
+- leaked-password protection if your plan supports it
+
+
+AUTOMATIC LANGUAGE TRANSLATION
+------------------------------
+English and Albanian use the portfolio's hand-written translations.
+
+When a visitor selects another language from languages.html, the selected
+language is saved in localStorage and the public pages are translated
+automatically with Google Translate.
+
+Because automatic translation is provided by a third-party service,
+translation availability and wording can depend on Google Translate and
+requires an internet connection.

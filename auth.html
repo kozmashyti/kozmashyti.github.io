@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kozma Shyti Portfolio Account">
+    <title>Account | Kozma Shyti</title>
+
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="shortcut icon" type="image/png" href="logo.png">
+
+    <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+
+    <header class="auth-navbar">
+        <div class="auth-nav-inner">
+            <a href="index.html" class="auth-brand" aria-label="Back to portfolio">
+                <img src="logo.png" alt="Kozma Shyti logo">
+            </a>
+
+            <div class="auth-nav-actions">
+                <a href="index.html" class="back-link">Portfolio</a>
+
+                <button
+                    id="authThemeBtn"
+                    class="auth-icon-btn"
+                    type="button"
+                    aria-label="Change theme"
+                >
+                    ☾
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="auth-main">
+        <section class="auth-shell">
+
+            <div class="auth-intro">
+                <p class="auth-eyebrow">K. ACCOUNT</p>
+
+                <h1>
+                    One place for your
+                    <span>account.</span>
+                </h1>
+
+                <p>
+                    Sign in to your account or create a new one.
+                    The interface matches the portfolio experience across
+                    desktop and mobile.
+                </p>
+
+                <div class="auth-benefits">
+                    <div>
+                        <span>01</span>
+                        <p>Clean and secure-ready interface</p>
+                    </div>
+
+                    <div>
+                        <span>02</span>
+                        <p>Responsive Login &amp; Sign Up forms</p>
+                    </div>
+
+                    <div>
+                        <span>03</span>
+                        <p>Ready to connect with Firebase or Supabase</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="auth-card">
+
+                <div class="auth-tabs" role="tablist">
+                    <button
+                        class="auth-tab active"
+                        type="button"
+                        data-auth-tab="login"
+                        role="tab"
+                        aria-selected="true"
+                    >
+                        Login
+                    </button>
+
+                    <button
+                        class="auth-tab"
+                        type="button"
+                        data-auth-tab="signup"
+                        role="tab"
+                        aria-selected="false"
+                    >
+                        Sign Up
+                    </button>
+                </div>
+
+                <div
+                    id="loginPanel"
+                    class="auth-panel active"
+                    data-auth-panel="login"
+                >
+                    <div class="auth-panel-heading">
+                        <h2>Welcome back.</h2>
+                        <p>Enter your details to continue.</p>
+                    </div>
+
+                    <form id="loginForm" class="auth-form">
+                        <div class="auth-field">
+                            <label for="loginEmail">Email</label>
+                            <input
+                                id="loginEmail"
+                                name="email"
+                                type="email"
+                                autocomplete="email"
+                                placeholder="you@example.com"
+                                required
+                            >
+                        </div>
+
+                        <div class="auth-field">
+                            <div class="auth-label-row">
+                                <label for="loginPassword">Password</label>
+                                <button
+                                    type="button"
+                                    class="text-action"
+                                    id="forgotPasswordBtn"
+                                >
+                                    Forgot password?
+                                </button>
+                            </div>
+
+                            <div class="password-wrap">
+                                <input
+                                    id="loginPassword"
+                                    name="password"
+                                    type="password"
+                                    autocomplete="current-password"
+                                    placeholder="Enter your password"
+                                    minlength="6"
+                                    required
+                                >
+
+                                <button
+                                    type="button"
+                                    class="password-toggle"
+                                    data-password-toggle="loginPassword"
+                                    aria-label="Show password"
+                                >
+                                    Show
+                                </button>
+                            </div>
+                        </div>
+
+                        <label class="remember-row">
+                            <input type="checkbox" name="remember">
+                            <span>Remember me</span>
+                        </label>
+
+                        <button type="submit" class="auth-submit">
+                            Login
+                        </button>
+
+                        <p class="auth-switch-text">
+                            <span class="login-switch-prefix">Don't have an account?</span>
+                            <button
+                                type="button"
+                                class="auth-switch-link"
+                                data-switch-auth="signup"
+                            >
+                                Sign Up
+                            </button>
+                        </p>
+                    </form>
+                </div>
+
+                <div
+                    id="signupPanel"
+                    class="auth-panel"
+                    data-auth-panel="signup"
+                >
+                    <div class="auth-panel-heading">
+                        <h2>Create account.</h2>
+                        <p>Set up your account in a few fields.</p>
+                    </div>
+
+                    <form id="signupForm" class="auth-form">
+                        <div class="auth-field">
+                            <label for="signupName">Full name</label>
+                            <input
+                                id="signupName"
+                                name="name"
+                                type="text"
+                                autocomplete="name"
+                                placeholder="Your name"
+                                required
+                            >
+                        </div>
+
+                        <div class="auth-field">
+                            <label for="signupEmail">Email</label>
+                            <input
+                                id="signupEmail"
+                                name="email"
+                                type="email"
+                                autocomplete="email"
+                                placeholder="you@example.com"
+                                required
+                            >
+                        </div>
+
+                        <div class="auth-field">
+                            <label for="signupPassword">Password</label>
+
+                            <div class="password-wrap">
+                                <input
+                                    id="signupPassword"
+                                    name="password"
+                                    type="password"
+                                    autocomplete="new-password"
+                                    placeholder="8–16 characters"
+                                    minlength="8"
+                                    maxlength="16"
+                                    pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,16}"
+                                    title="8–16 characters with uppercase, lowercase, number and special character"
+                                    required
+                                >
+
+                                <button
+                                    type="button"
+                                    class="password-toggle"
+                                    data-password-toggle="signupPassword"
+                                    aria-label="Show password"
+                                >
+                                    Show
+                                </button>
+                            </div>
+
+                            <div class="password-rules" id="passwordRules">
+                                <div class="password-rule" data-rule="length">
+                                    <span class="rule-dot"></span>
+                                    <span class="rule-text rule-length">8–16 characters</span>
+                                </div>
+
+                                <div class="password-rule" data-rule="uppercase">
+                                    <span class="rule-dot"></span>
+                                    <span class="rule-text rule-uppercase">At least one uppercase letter</span>
+                                </div>
+
+                                <div class="password-rule" data-rule="lowercase">
+                                    <span class="rule-dot"></span>
+                                    <span class="rule-text rule-lowercase">At least one lowercase letter</span>
+                                </div>
+
+                                <div class="password-rule" data-rule="number">
+                                    <span class="rule-dot"></span>
+                                    <span class="rule-text rule-number">At least one number</span>
+                                </div>
+
+                                <div class="password-rule" data-rule="special">
+                                    <span class="rule-dot"></span>
+                                    <span class="rule-text rule-special">At least one special character</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="auth-field">
+                            <label for="signupConfirmPassword">Confirm password</label>
+
+                            <div class="password-wrap">
+                                <input
+                                    id="signupConfirmPassword"
+                                    name="confirmPassword"
+                                    type="password"
+                                    autocomplete="new-password"
+                                    placeholder="Repeat your password"
+                                    minlength="8"
+                                    maxlength="16"
+                                    required
+                                >
+
+                                <button
+                                    type="button"
+                                    class="password-toggle"
+                                    data-password-toggle="signupConfirmPassword"
+                                    aria-label="Show password"
+                                >
+                                    Show
+                                </button>
+                            </div>
+                        </div>
+
+                        <label class="terms-row">
+                            <input id="signupTerms" type="checkbox" required>
+                            <span>
+                                I agree to the
+                                <a href="terms.html">Terms</a>
+                                and
+                                <a href="privacy.html">Privacy Policy</a>.
+                            </span>
+                        </label>
+
+                        <button type="submit" class="auth-submit">
+                            Create account
+                        </button>
+
+                        <p class="auth-switch-text">
+                            <span class="signup-switch-prefix">Already have an account?</span>
+                            <button
+                                type="button"
+                                class="auth-switch-link"
+                                data-switch-auth="login"
+                            >
+                                Sign In
+                            </button>
+                        </p>
+                    </form>
+                </div>
+
+
+                <div
+                    id="forgotPanel"
+                    class="auth-panel"
+                    data-auth-panel="forgot"
+                >
+                    <div class="auth-panel-heading">
+                        <h2>Forgot your password?</h2>
+                        <p>Enter the email associated with your account.</p>
+                    </div>
+
+                    <form id="forgotForm" class="auth-form">
+                        <div class="auth-field">
+                            <label for="forgotEmail">Email</label>
+                            <input
+                                id="forgotEmail"
+                                name="email"
+                                type="email"
+                                autocomplete="email"
+                                placeholder="you@example.com"
+                                required
+                            >
+                        </div>
+
+                        <button type="submit" class="auth-submit">
+                            Send reset link
+                        </button>
+
+                        <p class="auth-switch-text">
+                            <button
+                                type="button"
+                                class="auth-switch-link"
+                                data-switch-auth="login"
+                            >
+                                ← Back to Sign In
+                            </button>
+                        </p>
+                    </form>
+                </div>
+
+                <div
+                    id="resetPanel"
+                    class="auth-panel"
+                    data-auth-panel="reset"
+                >
+                    <div class="auth-panel-heading">
+                        <h2>Create a new password.</h2>
+                        <p>Use a strong password that you have not used before.</p>
+                    </div>
+
+                    <form id="resetForm" class="auth-form">
+                        <div class="auth-field">
+                            <label for="resetPassword">New password</label>
+
+                            <div class="password-wrap">
+                                <input
+                                    id="resetPassword"
+                                    name="password"
+                                    type="password"
+                                    autocomplete="new-password"
+                                    placeholder="8–16 characters"
+                                    minlength="8"
+                                    maxlength="16"
+                                    pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,16}"
+                                    title="8–16 characters with uppercase, lowercase, number and special character"
+                                    required
+                                >
+
+                                <button
+                                    type="button"
+                                    class="password-toggle"
+                                    data-password-toggle="resetPassword"
+                                    aria-label="Show password"
+                                >
+                                    Show
+                                </button>
+                            </div>
+
+                            <div class="password-rules reset-password-rules">
+                                <div class="password-rule" data-reset-rule="length">
+                                    <span class="rule-dot"></span>
+                                    <span class="rule-text reset-rule-length">8–16 characters</span>
+                                </div>
+
+                                <div class="password-rule" data-reset-rule="uppercase">
+                                    <span class="rule-dot"></span>
+                                    <span class="rule-text reset-rule-uppercase">At least one uppercase letter</span>
+                                </div>
+
+                                <div class="password-rule" data-reset-rule="lowercase">
+                                    <span class="rule-dot"></span>
+                                    <span class="rule-text reset-rule-lowercase">At least one lowercase letter</span>
+                                </div>
+
+                                <div class="password-rule" data-reset-rule="number">
+                                    <span class="rule-dot"></span>
+                                    <span class="rule-text reset-rule-number">At least one number</span>
+                                </div>
+
+                                <div class="password-rule" data-reset-rule="special">
+                                    <span class="rule-dot"></span>
+                                    <span class="rule-text reset-rule-special">At least one special character</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="auth-field">
+                            <label for="resetConfirmPassword">Confirm new password</label>
+
+                            <div class="password-wrap">
+                                <input
+                                    id="resetConfirmPassword"
+                                    name="confirmPassword"
+                                    type="password"
+                                    autocomplete="new-password"
+                                    placeholder="Repeat your new password"
+                                    minlength="8"
+                                    maxlength="16"
+                                    required
+                                >
+
+                                <button
+                                    type="button"
+                                    class="password-toggle"
+                                    data-password-toggle="resetConfirmPassword"
+                                    aria-label="Show password"
+                                >
+                                    Show
+                                </button>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="auth-submit">
+                            Update password
+                        </button>
+
+                        <p class="auth-switch-text">
+                            <button
+                                type="button"
+                                class="auth-switch-link"
+                                data-switch-auth="login"
+                            >
+                                ← Back to Sign In
+                            </button>
+                        </p>
+                    </form>
+                </div>
+
+
+                <div
+                    id="accountPanel"
+                    class="auth-panel"
+                    data-auth-panel="account"
+                >
+                    <div class="auth-panel-heading">
+                        <h2>Your account.</h2>
+                        <p>You are signed in securely.</p>
+                    </div>
+
+                    <div class="account-profile">
+                        <div class="account-avatar" id="accountAvatar">
+                            K
+                        </div>
+
+                        <div class="account-profile-copy">
+                            <strong id="accountName">User</strong>
+                            <span id="accountEmail">email@example.com</span>
+                        </div>
+                    </div>
+
+                    <div class="account-details">
+                        <div>
+                            <span class="account-detail-label">Account status</span>
+                            <strong class="account-status-value">Active</strong>
+                        </div>
+
+                        <div>
+                            <span class="account-detail-label">Email</span>
+                            <strong id="accountEmailDetail">email@example.com</strong>
+                        </div>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="auth-submit auth-logout"
+                        id="logoutBtn"
+                    >
+                        Sign Out
+                    </button>
+                </div>
+
+                <p
+                    id="authMessage"
+                    class="auth-message"
+                    aria-live="polite"
+                ></p>
+
+                <div class="auth-backend-note">
+                    <span></span>
+                    <p>
+                        Authentication status will appear here.
+                    </p>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="page-simple-footer">
+        <div class="page-simple-footer-inner">
+            <span>© 2026 Kozma Shyti</span>
+            <span class="page-rights">All Rights Reserved</span>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="auth.js"></script>
+    <script src="auto-translate.js"></script>
+</body>
+</html>
